@@ -11,6 +11,12 @@
         {{ message }}
 
         <p v-if="seen">Now you see me</p>
+
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
     </div>
     <script src="index.js"></script>
 </body>
