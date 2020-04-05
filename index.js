@@ -8,6 +8,11 @@ var app = new Vue({
             { text: 'Learn Vue' },
             { text: 'Build something awesome' },
         ]
+    },
+    methods: {
+        reverseMessage: function() {
+            this.message = this.message.split('').reverse().join('')
+        }
     }
 });
 
