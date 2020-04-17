@@ -10,15 +10,29 @@ var app = new Vue({
         variants: [
             {
                 variantId: 2234,
-                variantColor: 'green'
+                variantColor: 'green',
+                variantImage: 'assets/vmSocks-green.jpg'
             },
             {
                 variantId: 2235,
-                variantColor: 'blue'
+                variantColor: 'blue',
+                variantImage: 'assets/vmSocks-blue.png'
             }
         ],
         sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+        cart: 0,
         altText: 'A pair of socks',
         link: 'https://www.vuemastery.com/'
-    }
+    },
+    methods: {
+        addToCart() {
+            this.cart += 1
+        },
+        removeFromCart() {
+            this.cart -= 1
+        },
+        updateProduct(variantImage) {
+            this.image = variantImage
+        }
+    },
 });
