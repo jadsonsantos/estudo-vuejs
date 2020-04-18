@@ -2,6 +2,7 @@ var app = new Vue({
     el: '#app',
     data: {
         product: 'Socks',
+        brand: 'Vue Mastery',
         image: './assets/vmSocks-green.jpg',
         onSale: true,
         inStock: false,
@@ -23,6 +24,11 @@ var app = new Vue({
         cart: 0,
         altText: 'A pair of socks',
         link: 'https://www.vuemastery.com/'
+    },
+    computed: {
+        title() {
+            return this.brand + ' ' + this.product
+        }
     },
     methods: {
         addToCart() {
