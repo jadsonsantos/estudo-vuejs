@@ -1,13 +1,29 @@
+Vue.component('product-details', {
+    props: {
+        details: {
+            type: Array,
+            required: true
+        }
+    },
+    template: `
+        <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+        </ul>
+    `
+})
+
 Vue.component('product', {
     template: `
         <div class="product">
             <div class="product-image">
                 <img v-bind:src="image" v-bind:alt="altText" />
             </div>
+
             <div class="product-info">
                 <div class="cart">
                     <p>Cart {{ cart }}</p>
                 </div>
+
                 <h1>{{ title }}</h1>
                 <p v-if="inStock">In Stock</p>
                 <p v-else
@@ -15,12 +31,13 @@ Vue.component('product', {
                 </p>
                 <p>{{ sale }}</p>
                 <a v-bind:href="link">{{ product }}</a>
-                <ul>
-                    <li v-for="detail in details">{{ detail }}</li>
-                </ul>
+
+                <product-details :details="details"></product-details>
+
                 <ul>
                     <li v-for="size in sizes">{{ size }}</li>
                 </ul>
+
                 <div class="color-box" 
                         v-for="(variant, index) in variants" 
                         :key="variant.variantId"
@@ -28,6 +45,7 @@ Vue.component('product', {
                         @mouseover="updateProduct(index)"
                         >
                 </div>
+
                 <p>Shipping: {{ shipping }}</p>
                 <button @click="removeFromCart">Remove Cart</button>
                 <button v-on:click="addToCart"
