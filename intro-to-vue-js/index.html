@@ -14,7 +14,9 @@
             <p>Cart {{ cart.length }}</p>
         </div>
         <product :premium="premium"
-                @add-to-cart="updateCart">
+                @add-to-cart="updateCart"
+                @remove-from-cart="removeItem"
+                >
         </product>
     </div>
     <script src="index.js"></script>
