@@ -28,6 +28,7 @@ Vue.component('product', {
                         @mouseover="updateProduct(index)"
                         >
                 </div>
+                <p>Shipping: {{ shipping }}</p>
                 <button @click="removeFromCart">Remove Cart</button>
                 <button v-on:click="addToCart"
                         :disabled="!inStock"
@@ -37,6 +38,12 @@ Vue.component('product', {
             </div>
         </div>
     `,
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     data() {
         return {
             product: 'Socks',
@@ -91,10 +98,19 @@ Vue.component('product', {
                 return this.brand + ' ' + this.product + ' are on sale!'
             }
                 return this.brand + ' ' + this.product + ' are not on sale'
-        }
+        },
+        shipping() {
+            if (this.premium) {
+                return "Free"
+            }
+                return 2.99
+        },
     }
 })
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        premium: false
+    }
 });
