@@ -20,9 +20,6 @@ Vue.component('product', {
             </div>
 
             <div class="product-info">
-                <div class="cart">
-                    <p>Cart {{ cart }}</p>
-                </div>
 
                 <h1>{{ title }}</h1>
                 <p v-if="inStock">In Stock</p>
@@ -85,14 +82,16 @@ Vue.component('product', {
                 }
             ],
             sizes: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
-            cart: 0,
             altText: 'A pair of socks',
             link: 'https://www.vuemastery.com/'
         }
     },
     methods: {
         addToCart: function() {
-            this.cart += 1
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
+        },
+        updateCart(index) {
+            this.selectedVariant = index
         },
         removeFromCart: function() {
             this.cart -= 1
@@ -129,6 +128,12 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app',
     data: {
-        premium: false
-    }
+        premium: false,
+        cart: [],
+    },
+    methods: {
+        updateCart(id) {
+            this.cart.push(id)
+        }
+    },
 });
