@@ -23,6 +23,7 @@
                 <p v-else
                     :class="{ outOfStock: !inStock }">Out of Stock
                 </p>
+                <p>{{ sale }}</p>
                 <a v-bind:href="link">{{ product }}</a>
                 <ul>
                     <li v-for="detail in details">{{ detail }}</li>
