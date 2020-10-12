@@ -7,12 +7,14 @@
 </head>
 <body>
     <div id="app">
-        <h1 v-if="status">
-            {{title}}
-        </h1>
-        <h1 v-else>
-            Não existe texto
-        </h1>
+        <div v-if="user.id == 1">
+            Id: {{user.id}},<br>
+            Name: {{user.name}},<br>
+            Job: {{user.job}}
+        </div>
+    </div>
+    <div v-else>
+        Nenhum user impresso
     </div>
     <script src="vue.js"></script>
     <script>
@@ -20,7 +22,11 @@
             el: '#app',
             data: {
                 title: 'Aula 01 de Vuejs',
-                status: false
+                user: {
+                    id: 1,
+                    name: 'Jadson',
+                    job: 'Developer'
+                }
             }
         });
     </script>
