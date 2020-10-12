@@ -7,8 +7,11 @@
 </head>
 <body>
     <div id="app">
-        <h1 v-show="status">
+        <h1 v-if="status">
             {{title}}
+        </h1>
+        <h1 v-else>
+            Não existe texto
         </h1>
     </div>
     <script src="vue.js"></script>
