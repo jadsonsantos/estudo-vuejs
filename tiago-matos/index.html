@@ -7,26 +7,26 @@
 </head>
 <body>
     <div id="app">
-        <div v-if="user.id == 1">
-            Id: {{user.id}},<br>
-            Name: {{user.name}},<br>
-            Job: {{user.job}}
-        </div>
+        <ul>
+            <li v-for="(language, index) in languages">
+                {{index}} - {{language.name}}
+            </li>
+        </ul>
     </div>
-    <div v-else>
-        Nenhum user impresso
-    </div>
+
     <script src="vue.js"></script>
+
     <script>
         var app = new Vue({
             el: '#app',
             data: {
                 title: 'Aula 01 de Vuejs',
-                user: {
-                    id: 1,
-                    name: 'Jadson',
-                    job: 'Developer'
-                }
+                languages: [
+                    {name: 'PHP'},
+                    {name: 'JavaScript'},
+                    {name: 'Java'},
+                    {name: 'C'},
+                ]
             }
         });
     </script>
