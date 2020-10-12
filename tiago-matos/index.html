@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app" v->
-        <h1 v-if="status">
+    <div id="app">
+        <h1 v-show="status">
             {{title}}
         </h1>
     </div>
@@ -17,7 +17,7 @@
             el: '#app',
             data: {
                 title: 'Aula 01 de Vuejs',
-                status: true
+                status: false
             }
         });
     </script>
