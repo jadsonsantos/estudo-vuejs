@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-        <h1>
+    <div id="app" v->
+        <h1 v-if="status">
             {{title}}
         </h1>
     </div>
@@ -16,7 +16,8 @@
         var app = new Vue({
             el: '#app',
             data: {
-                title: 'Aula 01 de Vuejs'
+                title: 'Aula 01 de Vuejs',
+                status: true
             }
         });
     </script>
